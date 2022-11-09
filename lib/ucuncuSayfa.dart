@@ -13,7 +13,7 @@ class UcuncuSayfa extends StatefulWidget {
 
 class _UcuncuSayfaState extends State<UcuncuSayfa> {
   @override
-  Widget build(Object context) {
+  Widget build(BuildContext context) {
     //---------------------------------> Scaffold Widget'i -Başlangıç
     return Scaffold(
         //---------------------------------> AppBar Özelliği -Başlangıç
@@ -23,12 +23,26 @@ class _UcuncuSayfaState extends State<UcuncuSayfa> {
         //---------------------------------> AppBar Özelliği -Bitiş
         //---------------------------------> Body Özelliği -Başlangıç
         body: Center(
-          child: Container(
-            height: 100,
-            width: 350,
-            alignment: Alignment.center,
-            color: Colors.green,
-            child: Text("Gelen Bilgi: "),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Hatalı giriş lütfen tekrar dene",
+                style: TextStyle(fontSize: 40),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/home');
+                },
+                child: Text(
+                  "Tekrar Denemek İçin Tıkla",
+                  style: TextStyle(fontSize: 30),
+                ),
+              )
+            ],
           ),
         )
         //---------------------------------> Body Özelliği -Bitiş
