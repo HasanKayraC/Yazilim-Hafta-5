@@ -9,6 +9,8 @@ void main() {
 }
 
 String bilgi = "---";
+String eposta = "";
+String parola = "";
 //------------------------------------------
 // eposta adında string değişken oluştur
 // parola adında string değişken oluştur
@@ -71,32 +73,48 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            
-            
             //-------------------------- Eposta Bilgisi Al
             // Text() widgeti kullanarak 'eposta adresi' yazdır.
+            Text("Eposta"),
+            Container(
+              height: 50,
+              width: 250,
+              child: TextField(
+                onChanged: ((value) {
+                  setState(() {
+                    eposta = value;
+                  });
+                }),
+              ),
+            ),
             // TextField() widgeti kullanarak kullanıcının girebileceği bir alan oluştur.
             //---------------------------------------------
             SizedBox(
               height: 40,
             ),
-            
-            
-            
-            
-
-            
+            Text("Parola"),
+            Container(
+              height: 50,
+              width: 250,
+              child: TextField(
+                onChanged: ((value) {
+                  setState(() {
+                    parola = value;
+                  });
+                }),
+              ),
+            ),
             //-------------------------- Parola Bilgisi Al
             // Text() widgeti kullanarak 'Parola' yazdır.
             // TextField() widgeti kullanarak kullanıcının girebileceği bir alan oluştur.
             //--------------
 //ÖRNEK TextField() --------------------------------------------> TextField(onChanged: ((value) {setState(() {parola = value;});}),),
             //---------------------------------------------
-            
+
             SizedBox(
               height: 40,
             ),
-            
+
             //---------------------------------------------
             //-------------------------- Girilen bilgileri butona tıklandığında kontrol et
             //---------------------------------------------
@@ -105,6 +123,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   //---------------------------------------------
                   //IF ELSE kullanarak eposta / parolayı kontrol et
                   // dogruysa ikinciEkran 'a - yanlışsa ucuncuEkran 'a yönlendir.
+                  if (eposta == "konyasehir" && parola == "571") {
+                    Navigator.pushReplacementNamed(context, '/iki');
+                  } else {
+                    Navigator.pushReplacementNamed(context, '/uc');
+                  }
+                  //---------------------------------------------
                   //---------------------------------------------
                 },
                 child: Text(
