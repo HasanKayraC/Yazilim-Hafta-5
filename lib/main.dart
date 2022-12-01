@@ -9,8 +9,10 @@ void main() {
 }
 
 String bilgi = "---";
-String eposta = "";
-String parola = "";
+//------------------------------------------
+// eposta adında string değişken oluştur
+// parola adında string değişken oluştur
+//------------------------------------------
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -36,9 +38,6 @@ class MyApp extends StatelessWidget {
               kullaniciAdi: '',
               parola: '',
             ),
-        //------------------------------------------
-        // Bu araya yeni bir route ekle ve yönlendirmesini 3. sayfa yap
-        //------------------------------------------
       },
 
       //------------------------------------------ route bitiş
@@ -72,37 +71,41 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            //BURAYA WIDGET EKLE
-            Text("Eposta giriş"),
-            TextField(
-              onChanged: ((value) {
-                setState(() {
-                  eposta = value;
-                });
-              }),
-            ),
+            
+            
+            //-------------------------- Eposta Bilgisi Al
+            // Text() widgeti kullanarak 'eposta adresi' yazdır.
+            // TextField() widgeti kullanarak kullanıcının girebileceği bir alan oluştur.
+            //---------------------------------------------
             SizedBox(
               height: 40,
             ),
-            Text("Şifre giriş"),
-            TextField(
-              onChanged: ((value) {
-                setState(() {
-                  parola = value;
-                });
-              }),
-            ),
-            SizedBox(
-              height: 40,
-            ),
+            
+            
+            
+            
 
+            
+            //-------------------------- Parola Bilgisi Al
+            // Text() widgeti kullanarak 'Parola' yazdır.
+            // TextField() widgeti kullanarak kullanıcının girebileceği bir alan oluştur.
+            //--------------
+//ÖRNEK TextField() --------------------------------------------> TextField(onChanged: ((value) {setState(() {parola = value;});}),),
+            //---------------------------------------------
+            
+            SizedBox(
+              height: 40,
+            ),
+            
+            //---------------------------------------------
+            //-------------------------- Girilen bilgileri butona tıklandığında kontrol et
+            //---------------------------------------------
             ElevatedButton(
                 onPressed: () {
-                  if (eposta == "konya@konya.com" && parola == "1234") {
-                    Navigator.pushNamed(context, '/iki');
-                  } else {
-                    Navigator.pushNamed(context, '/uc');
-                  }
+                  //---------------------------------------------
+                  //IF ELSE kullanarak eposta / parolayı kontrol et
+                  // dogruysa ikinciEkran 'a - yanlışsa ucuncuEkran 'a yönlendir.
+                  //---------------------------------------------
                 },
                 child: Text(
                   "Oturum Aç",
